@@ -72,6 +72,6 @@ git clone https://github.com/rubenandreeb/challenge-amigo-secreto_esp-main.git
 
 ## 💻 Desarrollador del Proyecto
 
-Ruben Andree Barba
+🧑‍💻 Ruben Andree Barba
 
-En apoyo del curso de Alura
+🕶️ En apoyo del curso y recursos de Alura LATAM
