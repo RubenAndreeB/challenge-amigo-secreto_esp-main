@@ -19,10 +19,7 @@
 - [📈 Estado del Proyecto](#-estado-del-proyecto)
 - [🧪 Demostración de Funciones](#-demostración-de-funciones)
 - [🔗 Acceso al Proyecto](#-acceso-al-proyecto)
-- [🛠️ Tecnologías Utilizadas](#-tecnologías-utilizadas)
-- [👥 Personas Contribuyentes](#-personas-contribuyentes)
 - [💻 Desarrollador del Proyecto](#-desarrollador-del-proyecto)
-- [📝 Licencia](#-licencia)
 
 ---
 
@@ -69,3 +66,11 @@ O clonar este repositorio para probarlo localmente:
 
 ```bash
 git clone https://github.com/rubenandreeb/challenge-amigo-secreto_esp-main.git
+
+---
+
+## 💻 Desarrollador del Proyecto
+
+Ruben Andree Barba
+
+En apoyo del curso de Alura
