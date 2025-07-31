@@ -10,17 +10,22 @@ Limpiar el campo de entrada: Después de añadir el nombre, restablecer el campo
 function agregarAmigo() {
     // Se podria obtener el valor tambien por document.querySelector, ya que es el unico elemento de tipo input, pero se recomienda usar getElementById para mayor claridad
     let amigo = document.getElementById('amigo');
-
     // Validamos que el campo no este vacio
-    if (amigo === '') {
+    if (amigo.value.trim() === '') { // Queria que no aceptara como amigo un espacio en blanco, con o sin espacios, por eso uso trim()
         alert('Por favor, inserte un nombre.'); // Mostramos un mensaje de error
         return;
     } else {
-        listaAmigos.push(amigo.value);
-        amigo.value = ''; // Limpiamos el campo de entrada
-        mostrarAmigos(); // Llamamos a la función para mostrar los amigos en la lista
+        if (listaAmigos.includes(amigo.value)) { // Verificamos si el amigo ya está en la lista
+            alert('Este amigo ya está registrado, prueba otro nombre.'); // Mostramos un mensaje si el amigo ya existe
+            amigo.value = ''; // Limpiamos el campo de entrada
+            return;
+        } else {
+            listaAmigos.push(amigo.value);
+            amigo.value = ''; // Limpiamos el campo de entrada
+            mostrarAmigos(); // Llamamos a la función para mostrar los amigos en la lista
+            return;
+        }
     }
-    return;
 }
 
 /* Crea una función que recorra el array amigos y agregue cada nombre como un elemento <li> dentro de una lista HTML. Usa innerHTML para limpiar la lista antes de agregar nuevos elementos.
@@ -57,4 +62,3 @@ function sortearAmigo() {
     let amigoSorteado = listaAmigos[indiceAleatorio]; // Obtenemos el nombre sorteado
     document.getElementById('resultado').innerHTML = `Te toco: ${amigoSorteado}!`; // Mostramos el resultado
 }
-
