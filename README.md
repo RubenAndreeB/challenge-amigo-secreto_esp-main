@@ -1,5 +1,9 @@
 # 🎁 Sorteo de Amigos - Friend Drawing App
 
+Este proyecto fue desarrollado como parte de un curso práctico, y fue completado satisfactoriamente.
+
+![Insignia de Certificación](https://cdn1.gnarususercontent.com.br/6/409216/ff043987-239b-4661-bdb1-7f4ca6092c48.png)
+
 > Una aplicación interactiva en JavaScript que permite registrar nombres y sortear aleatoriamente un amigo. Creado como ejercicio educativo para fortalecer habilidades de lógica de programación.
 
 ---
