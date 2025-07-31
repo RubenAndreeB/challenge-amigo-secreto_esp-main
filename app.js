@@ -1,5 +1,11 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 let listaAmigos = ["Amigos Registrados: "];
+let amigosDisponibles = []; // Array auxiliar para el sorteo sin repetidos
+
+function actualizarAmigosDisponibles() {
+    // Reinicia el array auxiliar con los amigos actuales (sin el encabezado)
+    amigosDisponibles = listaAmigos.slice(1);
+}
 
 /* Crear una funcion para agregar amigos
         Tareas a realizar:
@@ -8,21 +14,20 @@ Validar la entrada: Implementar una validación para asegurarse de que el campo 
 Actualizar el array de amigos: Si el valor es válido, añadirlo al arreglo que almacena los nombre de amigos usando el método.push().
 Limpiar el campo de entrada: Después de añadir el nombre, restablecer el campo de texto a una cadena vacía. */
 function agregarAmigo() {
-    // Se podria obtener el valor tambien por document.querySelector, ya que es el unico elemento de tipo input, pero se recomienda usar getElementById para mayor claridad
     let amigo = document.getElementById('amigo');
-    // Validamos que el campo no este vacio
-    if (amigo.value.trim() === '') { // Queria que no aceptara como amigo un espacio en blanco, con o sin espacios, por eso uso trim()
-        alert('Por favor, inserte un nombre.'); // Mostramos un mensaje de error
+    if (amigo.value.trim() === '') {
+        alert('Por favor, inserte un nombre.');
         return;
     } else {
-        if (listaAmigos.includes(amigo.value)) { // Verificamos si el amigo ya está en la lista
-            alert('Este amigo ya está registrado, prueba otro nombre.'); // Mostramos un mensaje si el amigo ya existe
-            amigo.value = ''; // Limpiamos el campo de entrada
+        if (listaAmigos.includes(amigo.value)) {
+            alert('Este amigo ya está registrado, prueba otro nombre.');
+            amigo.value = '';
             return;
         } else {
             listaAmigos.push(amigo.value);
-            amigo.value = ''; // Limpiamos el campo de entrada
-            mostrarAmigos(); // Llamamos a la función para mostrar los amigos en la lista
+            amigo.value = '';
+            mostrarAmigos();
+            actualizarAmigosDisponibles();
             return;
         }
     }
@@ -57,8 +62,20 @@ function sortearAmigo() {
         alert('No hay amigos aun para sortear.'); // Mostramos un mensaje si no hay amigos
         return;
     }
-    let indiceAleatorio = Math.floor(Math.random() * (listaAmigos.length - 1)) + 1; // Generamos un índice aleatorio, evitando el primer elemento que es el título
-    console.log(indiceAleatorio); // Mostramos el índice aleatorio en la consola para depuración
-    let amigoSorteado = listaAmigos[indiceAleatorio]; // Obtenemos el nombre sorteado
-    document.getElementById('resultado').innerHTML = `Te toco: ${amigoSorteado}!`; // Mostramos el resultado
+    // Si ya no quedan amigos disponibles, reiniciamos el array auxiliar
+    if (amigosDisponibles.length === 0) {
+        actualizarAmigosDisponibles();
+        alert('Todos los amigos ya han sido sorteados. ¡Comenzamos de nuevo!');
+    }
+    // Sorteamos entre los disponibles
+    let indiceAleatorio = Math.floor(Math.random() * amigosDisponibles.length);
+    let amigoSorteado = amigosDisponibles[indiceAleatorio];
+    amigosDisponibles.splice(indiceAleatorio, 1); // Eliminamos el amigo sorteado del array auxiliar
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = `Te tocó: ${amigoSorteado}!`;
+
+    // Oculta el mensaje después de 5 segundos
+    setTimeout(() => {
+        resultado.innerHTML = '';
+    }, 5000);
 }
