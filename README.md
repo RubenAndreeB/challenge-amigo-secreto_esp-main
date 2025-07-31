@@ -1,7 +1,5 @@
 # 🎁 Sorteo de Amigos - Friend Drawing App
 
-![Portada del Proyecto](https://raw.githubusercontent.com/rubenandreeb/challenge-amigo-secreto_esp-main/main/assets/cover.jpg)
-
 > Una aplicación interactiva en JavaScript que permite registrar nombres y sortear aleatoriamente un amigo. Creado como ejercicio educativo para fortalecer habilidades de lógica de programación.
 
 ---
@@ -42,7 +40,7 @@ Esta aplicación permite registrar nombres de amigos en una lista y seleccionar 
 
 ## 📈 Estado del Proyecto
 
-✅ Proyecto finalizado con el **Producto Mínimo Viable (MVP)** completo.
+✅ Proyecto finalizado
 
 ---
 
